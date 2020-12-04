@@ -109,7 +109,8 @@ class ElsClient:
         logger.info('Sending GET request to ' + URL)
         r = requests.get(
             URL,
-            headers = headers
+            headers = headers,
+            proxies={"https": 'socks5://localhost:6666'},
             )
         self.__ts_last_req = time.time()
         self._status_code=r.status_code
